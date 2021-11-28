@@ -24,28 +24,31 @@ public class Driver {
         Employee emp;
         switch (choice) {
             case 1:
-                dept = "Tech";
+                dept = "tech";
                 break;
             case 2:
-                dept = "Admin";
+                dept = "adm";
                 break;
             case 3:
-                dept = "HR";
+                dept = "hr";
                 break;
             case 4:
-                dept = "Legal";
+                dept = "lg";
                 break;
             default:
                 System.out.println("please enter the valid department code");
+                return;
+        }
 
-                if(dept != ""){
+                CredentialService cs = new CredentialService();
                     emp = new Employee(firstName,lastName,dept);
                     email = CredentialService.GenEmail(emp);
                     randomPassword = CredentialService.randomCharacter(length);
-                    System.out.println(email);
-                    System.out.println(randomPassword);
-                }
-        }
+                    cs.showCredentials(emp, email, randomPassword);
+
+
+
+
 
 
 
